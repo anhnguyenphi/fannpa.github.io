@@ -384,6 +384,27 @@ footer .contact {
     display: block;
     clear: both; }
 
+.home .intro .gallery {
+  height: 500px;
+  position: relative; }
+  .home .intro .gallery .gallery-img {
+    width: 500px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2; }
+    .home .intro .gallery .gallery-img img {
+      width: 100%; }
+
+.home .intro .space {
+  position: relative;
+  z-index: -1; }
+  .home .intro .space .link {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    padding: 15px 30px; }
+
 .home .intro .news .title {
   text-align: center;
   margin-bottom: 50px; }

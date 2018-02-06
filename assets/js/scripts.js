@@ -1,4 +1,5 @@
 $(function () {
+    "use strict";
     function createDatepicker(id) {
         $(id).datepicker();
         $(id).datepicker("option", "dateFormat", "dd/mm/yy");

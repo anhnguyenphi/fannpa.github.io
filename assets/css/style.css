@@ -336,7 +336,8 @@ footer .contact {
 .home .intro .thumb {
   width: 40%;
   -ms-flex: 0 0 40%;
-      flex: 0 0 40%; }
+      flex: 0 0 40%;
+  z-index: 1; }
   .home .intro .thumb img {
     width: 100%;
     box-shadow: 0 0 20px 5px #c5c5c5; }
@@ -397,13 +398,13 @@ footer .contact {
       width: 100%; }
 
 .home .intro .space {
-  position: relative;
-  z-index: -1; }
+  position: relative; }
   .home .intro .space .link {
     position: absolute;
     bottom: 0;
     right: 10px;
-    padding: 15px 30px; }
+    padding: 15px 30px;
+    z-index: 2; }
 
 .home .intro .news .title {
   text-align: center;

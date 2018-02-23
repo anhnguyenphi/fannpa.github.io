@@ -198,7 +198,8 @@ ul {
 nav {
   padding: 20px 5%;
   box-shadow: 0 1px 1px 1px #eee;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   nav .logo {
     float: left;
     width: 100px; }

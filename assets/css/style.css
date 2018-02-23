@@ -543,3 +543,57 @@ footer .contact {
       margin-bottom: 20px; }
     .room .utility .row .text {
       font-size: 14px; }
+
+.facility {
+  position: relative; }
+  .facility .block-3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1; }
+    .facility .block-3 .left .big > div {
+      top: 70%; }
+  .facility .pool {
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 100px; }
+    .facility .pool::before {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 100%;
+      height: 400px;
+      z-index: -1;
+      top: 0; }
+  .facility .pool-left {
+    width: 60%; }
+    .facility .pool-left .item {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+      .facility .pool-left .item img {
+        margin-right: 100px;
+        margin-bottom: 50px; }
+    .facility .pool-left .item:first-child img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block; }
+  .facility .pool-right {
+    width: 40%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .facility .pool-right .header .type {
+      color: #c5c5c5;
+      margin-bottom: 30px; }
+    .facility .pool-right .header .name {
+      font-size: 3em; }
+    .facility .pool-right .item img {
+      margin-bottom: 50px; }

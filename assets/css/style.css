@@ -50,7 +50,7 @@ ul {
   color: #fff; }
 
 .card {
-  background-color: #ececec; }
+  background-color: #f9f9f9; }
   .card .img {
     height: 300px;
     overflow-y: hidden; }
@@ -69,7 +69,8 @@ ul {
   .card:hover {
     -ms-transform: translateY(-10px);
         transform: translateY(-10px);
-    box-shadow: 0 0 20px 5px #c5c5c5; }
+    box-shadow: 0 0 20px 5px #ddd;
+    background-color: #fff; }
 
 .block-3 {
   display: -ms-flexbox;
@@ -116,16 +117,14 @@ ul {
       .block-3 .left .line .b-line {
         font-size: 8em;
         position: absolute;
-        z-index: -1;
+        z-index: 1;
         top: 50%;
         color: #f9f9f9;
         right: 0;
         -ms-transform: translate(50%, -50%) rotate(-90deg) translateY(-40%);
             transform: translate(50%, -50%) rotate(-90deg) translateY(-40%); }
   .block-3 .middle {
-    width: 76%;
-    display: -ms-flexbox;
-    display: flex; }
+    width: 76%; }
   .block-3 .right {
     display: -ms-flexbox;
     display: flex;
@@ -167,7 +166,7 @@ ul {
       .block-3 .right .line .b-line {
         font-size: 8em;
         position: absolute;
-        z-index: -1;
+        z-index: 1;
         top: 50%;
         color: #f9f9f9;
         right: 0;
@@ -182,6 +181,14 @@ ul {
 
 .list-ver li:last-child {
   margin-right: 0; }
+
+.g-header {
+  text-transform: uppercase; }
+  .g-header .type {
+    color: #c5c5c5;
+    margin-bottom: 30px; }
+  .g-header .name {
+    font-size: 3em; }
 
 .clearfix::after {
   content: '';
@@ -264,6 +271,10 @@ footer .contact {
     color: #a09992; }
   footer .contact .social {
     float: right; }
+
+.home .block-3 .middle {
+  display: -ms-flexbox;
+  display: flex; }
 
 .home .banner {
   position: relative; }
@@ -590,10 +601,28 @@ footer .contact {
         flex-direction: column;
     -ms-flex-pack: justify;
         justify-content: space-between; }
-    .facility .pool-right .header .type {
-      color: #c5c5c5;
-      margin-bottom: 30px; }
-    .facility .pool-right .header .name {
-      font-size: 3em; }
     .facility .pool-right .item img {
       margin-bottom: 50px; }
+
+.news {
+  background-color: #ffffff; }
+  .news .g-header {
+    text-align: center;
+    margin: 50px 0; }
+  .news .block-3 .big > div {
+    color: #f9f9f9; }
+  .news .block-3 .left .big > div {
+    top: 20%; }
+  .news .block-3 .right .big > div {
+    top: auto;
+    bottom: 20%; }
+  .news .list-news {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 100px; }
+    .news .list-news .wrapper {
+      width: 33.33%; }
+    .news .list-news .card {
+      margin: 30px; }

@@ -1,3 +1,8 @@
+function openBookingForm() {
+    console.log("hahah");
+    $("#booking").addClass('active');
+    $("#booking-slider").slick('refresh');
+}
 $(function () {
     "use strict";
     /**
@@ -58,6 +63,9 @@ $(function () {
     createDatepicker("#checkout");
 
     // Booking form
+    $("#booking-close").click(function () {
+        $("#booking").removeClass('active');
+    });
     createDatepicker("#form-checkin");
     createDatepicker("#form-checkout");
     createCountInput("#guest-count", [
@@ -118,6 +126,7 @@ $(function () {
         }
         this.text = total + ' Phòng';
     });
+    //
 
     $('#rooms').slick({
         slidesToShow: 1,

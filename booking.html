@@ -30,7 +30,7 @@
             </div>
          </div>
          <div class="input-part">
-             <form action="">
+             <form class="scroll" action="">
                 <div class="group">
                     <div class="header">Đặt phòng</div>
                     <div class="list-field">
@@ -39,16 +39,54 @@
                             <input type="text" id="form-checkin">
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check out</label>
+                            <input type="text" id="form-checkout">
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                            <label for=""><i class="fa fa-user-o" aria-hidden="true"></i>Số khách</label>
+                            <div id="guest-count" class="count-input">
+                                <input type="text" id="guest-input">
+                                <div class="data-container">
+                                    <div class="text-container" v-bind:class="{ active: active }" v-on:click="dropdown">
+                                        <span>{{ text }}</span>
+                                        <i class="fa" v-bind:class="[active ? 'fa-sort-asc' : 'fa-sort-desc']" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="dropdown-count" v-bind:class="{ active: active }">
+                                        <div class="item" v-for="item in items">
+                                            <span class="name">{{ item.name }}</span>
+                                            <div class="modifier">
+                                                <span class="remove" v-on:click="remove(item.name)">-</span>
+                                                <span class="num">{{ item.num }}</span>
+                                                <span class="add" v-on:click="add(item.name)">+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }"><span>
+                                </div>
+                            </div>
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                            <label for=""><i class="fa fa-home" aria-hidden="true"></i>Loại phòng / Số Phòng</label>
+                            <div id="room-count" class="count-input">
+                                <input type="text" id="room-input">
+                                <div class="data-container">
+                                    <div class="text-container" v-bind:class="{ active: active }" v-on:click="dropdown">
+                                        <span>{{ text }}</span>
+                                        <i class="fa" v-bind:class="[active ? 'fa-sort-asc' : 'fa-sort-desc']" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="dropdown-count" v-bind:class="{ active: active }">
+                                        <div class="item" v-for="item in items">
+                                            <span class="name">{{ item.name }}</span>
+                                            <div class="modifier">
+                                                <span class="remove" v-on:click="remove(item.name)">-</span>
+                                                <span class="num">{{ item.num }}</span>
+                                                <span class="add" v-on:click="add(item.name)">+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }"><span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,23 +95,29 @@
                     <div class="list-field">
                         <div class="field">
                             <label for="">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>Họ và tên</label>
+                            <input type="text">
                         </div>
                         <div class="field">
                             <label for="">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>Email</label>
+                            <input type="email">
                         </div>
                         <div class="field">
                             <label for="">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                                <i class="fa fa-phone" aria-hidden="true"></i>Số điện thoại</label>
+                            <input type="tel">
                         </div>
                         <div class="field">
                             <label for="">
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
-                            <input type="text" id="form-checkin">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Hình thức thanh toán</label>
+                            <div class="selection">
+                                <select name="" id="">
+                                    <option value="">Master card</option>
+                                    <option value="">Tiền mặt</option>
+                                    <option value="">Chuyển khoảng</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,11 +131,15 @@
                     </div>
                 </div>
              </form>
+            <button class="close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
          </div>
      </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 

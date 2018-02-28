@@ -35,6 +35,15 @@ a {
 ul {
   list-style: none; }
 
+.scroll::-webkit-scrollbar {
+  width: 5px; }
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #f9f9f9; }
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #000; }
+
 .button {
   display: inline-block;
   border: solid 1px #524947;
@@ -102,7 +111,8 @@ ul {
 .booking {
   display: -ms-flexbox;
   display: flex;
-  margin: 30px 10%;
+  height: 80vh;
+  margin: 100px 100px 0;
   box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15); }
   .booking #booking-slider {
     width: 35%;
@@ -142,8 +152,20 @@ ul {
       display: none; }
   .booking .input-part {
     width: 65%;
-    padding: 20px 20px 0;
     position: relative; }
+    .booking .input-part form {
+      padding: 20px 20px 100px;
+      overflow: scroll;
+      height: 100%;
+      box-sizing: border-box; }
+    .booking .input-part .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      border: none;
+      background-color: #c5c5c5; }
     .booking .input-part .header {
       margin-bottom: 20px; }
     .booking .input-part .group {
@@ -195,9 +217,87 @@ ul {
       .booking .list-field label i {
         margin-right: 7px; }
     .booking .list-field input {
+      box-sizing: border-box;
       width: 80%;
       padding: 10px;
       border: solid 1px #e6e6e6; }
+    .booking .list-field .selection select {
+      box-sizing: border-box;
+      width: 80%;
+      padding: 10px;
+      border: solid 1px #e6e6e6; }
+  .booking .count-input input {
+    display: none; }
+  .booking .count-input .data-container {
+    position: relative; }
+  .booking .count-input .text-container {
+    background-color: #fff;
+    width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px #e6e6e6;
+    cursor: pointer;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .booking .count-input .text-container .fa {
+      color: #808080; }
+    .booking .count-input .text-container.active {
+      z-index: 3; }
+  .booking .count-input .dropdown-count {
+    display: none; }
+    .booking .count-input .dropdown-count .item {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center;
+      padding: 10px;
+      border-top: solid 1px #e6e6e6; }
+      .booking .count-input .dropdown-count .item:first-child {
+        border-top: none; }
+    .booking .count-input .dropdown-count .name {
+      color: #808080; }
+    .booking .count-input .dropdown-count .modifier {
+      display: -ms-flexbox;
+      display: flex; }
+      .booking .count-input .dropdown-count .modifier > span {
+        cursor: pointer;
+        padding: 5px 7px;
+        border: solid 1px #e6e6e6;
+        border-right: none; }
+        .booking .count-input .dropdown-count .modifier > span:last-child {
+          border-right: solid 1px #e6e6e6; }
+      .booking .count-input .dropdown-count .modifier .remove:hover, .booking .count-input .dropdown-count .modifier .add:hover {
+        background: #b3b3b3; }
+  .booking .count-input .dropdown-count.active {
+    background-color: #fff;
+    top: 100%;
+    width: 80%;
+    left: 0px;
+    border: solid 1px #e6e6e6;
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 3; }
+  .booking .count-input .pg-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    filter: alpha(opacity=100);
+    background-color: rgba(0, 0, 0, 0.35); }
+    .booking .count-input .pg-bg.active {
+      display: block; }
 
 .block-3 {
   display: -ms-flexbox;

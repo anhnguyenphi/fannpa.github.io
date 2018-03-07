@@ -18,19 +18,19 @@
 
 <body>
     <header>
-        <nav>
+        <nav class="pc">
             <div class="logo">
                 <img src="assets/img/logo.svg" alt="">
             </div>
             <ul class="list-nav">
                 <li>
-                    <a href="index.html">Trang chủ</a>
+                    <a class="active" href="index.html">Trang chủ</a>
                 </li>
                 <li>
                     <a href="">Giới thiệu</a>
                 </li>
                 <li>
-                    <a class="active" href="room.html">Loại phòng</a>
+                    <a href="room.html">Loại phòng</a>
                 </li>
                 <li>
                     <a href="">Tiện ích</a>
@@ -54,6 +54,56 @@
                 </li>
             </ul>
             <a href="" class="button book">Đặt phòng</a>
+        </nav>
+        <nav class="mobile">
+            <button id="hamburger-menu" class="hamburger-menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="logo">
+                <a href="" class="wrap">
+                    <img src="assets/img/logo.svg" alt="">
+                </a>
+            </div>
+            <div id="sidebar-menu" class="sidebar-menu scroll">
+                <button id="close-sidebar" class="close-sidebar">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <ul class="list-nav">
+                    <li>
+                        <a class="active" href="index.html">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="room.html">Loại phòng</a>
+                    </li>
+                    <li>
+                        <a href="">Tiện ích</a>
+                    </li>
+                    <li>
+                        <a href="">Thư viện</a>
+                    </li>
+                    <li>
+                        <a href="">Tin tức</a>
+                    </li>
+                    <li>
+                        <a href="">Liên lạc</a>
+                    </li>
+                </ul>
+                <div class="book-room">
+                    <a href="" class="button book">Đặt phòng</a>
+                </div>
+                <ul class="language">
+                    <li>
+                        <a class="active" href="">VN</a>
+                    </li>
+                    <li>
+                        <a href="">EN</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
         </nav>
     </header>
     <div class="g-photo">
@@ -111,28 +161,32 @@
             <div class="info">
                 <ul class="list-ver">
                     <li>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>123, tên đường, quận, thành phố, quốc gia</li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>51 Dương Hiến Quyền, Nha Trang, Khánh Hoà</li>
                     <li>
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>abc@xyz.com</li>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <a href="mailto:hello@marilyn-hotel.vn">hello@marilyn-hotel.vn</a>
+                    </li>
                     <li>
-                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>0123456789</li>
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <a href="tel:0936444999">0123456789</a>
+                    </li>
                 </ul>
             </div>
             <div class="social">
                 <ul class="list-ver">
                     <li>
-                        <a href="">
+                        <a href="https://www.facebook.com/marilynnhatranghotel">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa fa-tripadvisor" aria-hidden="true"></i>
                         </a>
                     </li>
                 </ul>

@@ -10,7 +10,7 @@ $(function () {
      * @param {*} id : element id selector
      * @param {*} options : [ {name, max, min, num} ]
      */
-    var baseMixin = {
+    var baseCountInputMixin = {
         methods: {
             dropdown: function (events) {
                 this.active = !this.active;
@@ -39,6 +39,37 @@ $(function () {
             this.display();
         }
     };
+
+    var baseSelectMixin = {
+        data: {
+            selected: '',
+            options: [],
+            active: false
+        },
+        methods: {
+            dropdown: function (events) {
+                this.active = !this.active;
+            },
+            select: function (idx) {
+                this.selected = this.options[idx].value;
+                this.dropdown();
+            }
+        },
+        created: function () {
+            this.selected = this.options.length > 0 ? this.options[0].value : 0;
+        }
+    }
+
+    function createSelect(id, options) {
+        var select = new Vue({
+            el: id,
+            data: {
+                options: options
+            },
+            mixins: [baseSelectMixin]
+        });
+    }
+
     function createCountInput(id, items, displayFunc) {
         var guestInput = new Vue({
             el: id,
@@ -47,7 +78,7 @@ $(function () {
                 active: false,
                 items: items
             },
-            mixins: [baseMixin],
+            mixins: [baseCountInputMixin],
             methods: {
                 display: displayFunc
             }
@@ -61,6 +92,11 @@ $(function () {
     }
     createDatepicker("#checkin");
     createDatepicker("#checkout");
+    createSelect("#guest-select", [
+        { text: '1', value: '1'},
+        { text: '2', value: '2'},
+        { text: '3', value: '3'},
+    ]);
 
     // Booking form
     $("#booking-close").click(function () {
@@ -127,6 +163,14 @@ $(function () {
         this.text = total + ' Phòng';
     });
     //
+    $("#hamburger-menu").click(function (events) {
+        $("#sidebar-menu").addClass('active');
+        $("#pg-pb-global").addClass('active');
+    });
+    $("#pg-pb-global, #close-sidebar").click(function (events) {
+        $("#sidebar-menu").removeClass('active');
+        $("#pg-pb-global").removeClass('active');
+    })
 
     $('#rooms').slick({
         slidesToShow: 1,

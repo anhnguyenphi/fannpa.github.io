@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="group">
-                    <div class="header">Đặt phòng</div>
+                    <div class="header">THÔNG TIN KHÁCH HÀNG</div>
                     <div class="list-field">
                         <div class="field">
                             <label for="">
@@ -112,12 +112,20 @@
                         <div class="field">
                             <label for="">
                                 <i class="fa fa-calendar-o" aria-hidden="true"></i>Hình thức thanh toán</label>
-                            <div class="selection">
-                                <select name="" id="">
-                                    <option value="">Master card</option>
-                                    <option value="">Tiền mặt</option>
-                                    <option value="">Chuyển khoảng</option>
+                            <div class="g-select" id="guest-select">
+                                <select name="" v-model="selected">
+                                    <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
                                 </select>
+                                <div class="display">
+                                    <div class="selected" v-on:click="dropdown">{{ selected }}
+                                        <i class="fa" v-bind:class="[active ? 'fa-sort-asc' : 'fa-sort-desc']" aria-hidden="true"></i>
+                                    </div>
+                                    <ul class="list-option" v-bind:class="[active ? 'active' : '']">
+                                        <li v-for="(option, idx) in options" v-on:click="select(idx)">
+                                            {{ option.text }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

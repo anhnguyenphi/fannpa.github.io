@@ -185,7 +185,15 @@ $(function () {
         asNavFor: '#rooms',
         centerMode: true,
         arrows: false,
-        focusOnSelect: true
+        focusOnSelect: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     });
 
     $("#booking-slider").slick({

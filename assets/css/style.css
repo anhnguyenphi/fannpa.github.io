@@ -18,8 +18,8 @@
 
 @font-face {
   font-family: 'MYRIADPRO';
-  src: url("../fonts/MYRIADPRO-REGULAR.otf");
-  src: local("MYRIADPRO-REGULAR"), url("../fonts/MYRIADPRO-REGULAR.otf") format("opentype");
+  src: url("../fonts/MYRIADPRO-REGULAR.OTF");
+  src: local("MYRIADPRO-REGULAR"), url("../fonts/MYRIADPRO-REGULAR.OTF") format("opentype");
   font-weight: normal;
   font-style: normal; }
 
@@ -38,10 +38,10 @@
   note: All CSS3 Properties are being supported by Safari 5
   more info: http://www.findmebyip.com/litmus/#css3-properties
 ------------------------------------------------------------- */
-.button, .button-ref, .card, .g-select .list-option, nav.mobile .sidebar-menu, .room #rooms-nav .item.slick-current img, .room #rooms-nav .item:hover img, .g-photo .p-row .item img {
+.button, .button-ref, .card, .g-select .list-option, nav.mobile .sidebar-menu, .room #rooms-nav .item.slick-current img, .room #rooms-nav .item:hover img, .g-photo .p-row .item img, .g-video .p-row .item, .g-video .p-row .item img {
   transition: all 0.2s ease-in; }
 
-.g-photo .p-row .item img:hover, .g-video .p-row .item iframe:hover {
+.g-photo .p-row .item img:hover {
   box-shadow: 0 10px 6px -6px #777;
   -ms-transform: translateY(-10px);
       transform: translateY(-10px); }
@@ -144,15 +144,30 @@ ul {
   display: none;
   font-family: 'MYRIADPRO';
   box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15); }
+  .booking .booking-popup {
+    display: none; }
   .booking.active {
     display: -ms-flexbox;
     display: flex;
-    position: fixed;
     width: 90%;
+    position: fixed;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
+  .booking .booking-popup {
+    padding: 50px;
+    text-align: center; }
+    .booking .booking-popup h2, .booking .booking-popup p {
+      margin-bottom: 20px; }
+    .booking .booking-popup .button {
+      padding: 15px 30px; }
+  .booking.complete {
+    width: 60%; }
+    .booking.complete .booking-popup {
+      display: block; }
+    .booking.complete #booking-slider, .booking.complete .input-part {
+      display: none; }
   .booking #booking-slider {
     width: 35%;
     height: 90vh;
@@ -225,21 +240,8 @@ ul {
       background-color: #f9f9f9;
       display: -ms-flexbox;
       display: flex;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-      .booking .input-part .summary .money {
-        margin: 15px 0 0 20px; }
-        .booking .input-part .summary .money .title {
-          color: #808080;
-          margin-bottom: 10px; }
-        .booking .input-part .summary .money .num {
-          font-size: 2em;
-          font-family: 'FS TrajanPro'; }
-          .booking .input-part .summary .money .num span {
-            color: #808080;
-            font-size: 0.5em;
-            margin-left: 10px;
-            font-family: 'MYRIADPRO'; }
+      -ms-flex-pack: center;
+          justify-content: center; }
       .booking .input-part .summary .booking-submit {
         margin-right: 30px;
         display: -ms-flexbox;
@@ -312,6 +314,9 @@ ul {
         border-top: none; }
     .booking .count-input .dropdown-count .name {
       color: #808080; }
+    .booking .count-input .dropdown-count .des {
+      color: red;
+      font-size: 0.8em; }
     .booking .count-input .dropdown-count .modifier {
       display: -ms-flexbox;
       display: flex; }
@@ -349,6 +354,10 @@ ul {
     background-color: rgba(0, 0, 0, 0.35); }
     .booking .count-input .pg-bg.active {
       display: block; }
+  .booking #payment-info {
+    display: none; }
+    .booking #payment-info.active {
+      display: block; }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
   .booking {
@@ -356,6 +365,8 @@ ul {
         flex-direction: column; }
     .booking #booking-slider, .booking .input-part {
       width: 100%; }
+    .booking #booking-slider .item .content {
+      border-top: none; }
     .booking #booking-slider {
       height: 30vh; }
     .booking .input-part {
@@ -408,11 +419,15 @@ ul {
       .block-3 .left .big > div {
         color: #f2f2f2;
         position: absolute;
-        font-size: 8em;
         left: 0;
         top: 50%;
-        -ms-transform: translate(-50%, -50%) rotate(90deg) translateY(-30%);
-            transform: translate(-50%, -50%) rotate(90deg) translateY(-30%); }
+        display: inline-block;
+        font-size: 7em;
+        height: .75em;
+        line-height: 0.8em;
+        vertical-align: top;
+        -ms-transform: translate(-50%, -50%) rotate(90deg) translateY(-50%);
+            transform: translate(-50%, -50%) rotate(90deg) translateY(-50%); }
     .block-3 .left .line {
       color: #afafaf;
       text-align: center;
@@ -430,14 +445,17 @@ ul {
         white-space: nowrap;
         font-family: 'MYRIADPRO'; }
       .block-3 .left .line .b-line {
-        font-size: 8em;
-        position: absolute;
-        z-index: 1;
-        top: 50%;
         color: #f9f9f9;
+        position: absolute;
         right: 0;
-        -ms-transform: translate(50%, -50%) rotate(-90deg) translateY(-34%);
-            transform: translate(50%, -50%) rotate(-90deg) translateY(-34%); }
+        top: 50%;
+        display: inline-block;
+        font-size: 7em;
+        height: .75em;
+        line-height: 0.8em;
+        vertical-align: top;
+        -ms-transform: translate(50%, -50%) rotate(-90deg) translate(0%, -50%);
+            transform: translate(50%, -50%) rotate(-90deg) translate(0%, -50%); }
   .block-3 .middle {
     width: 76%; }
   .block-3 .right {
@@ -459,12 +477,16 @@ ul {
       overflow-x: hidden; }
       .block-3 .right .big > div {
         color: #f9f9f9;
-        position: absolute;
-        font-size: 8em;
-        right: 0;
         top: 50%;
-        -ms-transform: translate(50%, -50%) rotate(-90deg) translate(0%, -30%);
-            transform: translate(50%, -50%) rotate(-90deg) translate(0%, -30%); }
+        right: 0;
+        position: absolute;
+        display: inline-block;
+        font-size: 7em;
+        height: .75em;
+        line-height: 0.8em;
+        vertical-align: top;
+        -ms-transform: translate(50%, -50%) rotate(-90deg) translateY(-50%);
+            transform: translate(50%, -50%) rotate(-90deg) translateY(-50%); }
     .block-3 .right .line {
       color: #afafaf;
       padding-top: 30%;
@@ -481,14 +503,18 @@ ul {
         white-space: nowrap;
         font-family: 'MYRIADPRO'; }
       .block-3 .right .line .b-line {
-        font-size: 8em;
         position: absolute;
         z-index: 1;
         top: 50%;
         color: #f9f9f9;
-        right: 0;
-        -ms-transform: translate(-50%, -50%) rotate(90deg) translateY(-34%);
-            transform: translate(-50%, -50%) rotate(90deg) translateY(-34%); }
+        left: 0;
+        display: inline-block;
+        font-size: 7em;
+        height: .75em;
+        line-height: 0.8em;
+        vertical-align: top;
+        -ms-transform: translate(-50%, -50%) rotate(90deg) translateY(-50%);
+            transform: translate(-50%, -50%) rotate(90deg) translateY(-50%); }
   .block-3 .gray {
     background-color: rgba(249, 249, 249, 0.5); }
 
@@ -510,7 +536,7 @@ ul {
     font-family: 'FS TrajanPro'; }
 
 .g-bgheader {
-  background-image: url(images/bg.png);
+  background-image: url(../../images/bg.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
@@ -587,6 +613,35 @@ nav.pc {
       font-size: 1.1em; }
     nav.pc .list-nav a.active, nav.pc .list-nav a:hover {
       color: #000; }
+    nav.pc .list-nav .dropdown-nav {
+      position: relative; }
+      nav.pc .list-nav .dropdown-nav ul {
+        display: none;
+        box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.175);
+        border-radius: 5px;
+        padding-top: 10px; }
+        nav.pc .list-nav .dropdown-nav ul li {
+          display: block;
+          min-width: 200px; }
+          nav.pc .list-nav .dropdown-nav ul li:first-child a {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px; }
+          nav.pc .list-nav .dropdown-nav ul li:last-child a {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px; }
+          nav.pc .list-nav .dropdown-nav ul li a {
+            display: block;
+            white-space: nowrap;
+            padding: 10px 15px;
+            background: #fff; }
+          nav.pc .list-nav .dropdown-nav ul li a:hover {
+            background: #c5c5c5; }
+      nav.pc .list-nav .dropdown-nav:hover ul {
+        display: block;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        text-align: left; }
   nav.pc .book {
     float: right;
     padding: 15px 30px; }
@@ -650,6 +705,8 @@ nav.mobile {
       padding: 10px; }
       nav.mobile .sidebar-menu .list-nav a.active {
         background: #c5c5c5; }
+    nav.mobile .sidebar-menu .list-nav .dropdown-nav ul a {
+      color: #b3b3b3; }
     nav.mobile .sidebar-menu .book-room {
       margin-top: 30px;
       text-align: center; }
@@ -1369,6 +1426,10 @@ footer .contact {
     margin-bottom: 40px; }
     .g-photo .p-row .item {
       width: 33.33%; }
+      .g-photo .p-row .item .sub-item {
+        display: none; }
+        .g-photo .p-row .item .sub-item:first-child {
+          display: block; }
       .g-photo .p-row .item img {
         display: block;
         width: 90%;
@@ -1504,12 +1565,26 @@ footer .contact {
     display: flex;
     margin-bottom: 50px; }
     .g-video .p-row .item {
-      width: 33.33%; }
-      .g-video .p-row .item iframe {
+      width: 33.33%;
+      position: relative; }
+      .g-video .p-row .item img {
         display: block;
         width: 80%;
         height: 300px;
         margin: auto; }
+      .g-video .p-row .item i.fa {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        font-size: 40px;
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+      .g-video .p-row .item:hover {
+        -ms-transform: translateY(-10px);
+            transform: translateY(-10px); }
+        .g-video .p-row .item:hover img {
+          box-shadow: 0 10px 6px -6px #777; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .g-video .g-bgheader {

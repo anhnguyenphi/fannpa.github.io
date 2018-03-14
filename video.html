@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/slick-theme.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -33,13 +34,23 @@
                     <a href="room.html">Loại phòng</a>
                 </li>
                 <li>
-                    <a href="">Tiện ích</a>
+                    <div class="dropdown-nav">
+                        <a href="">Tiện ích</a>
+                        <ul>
+                            <li>
+                                <a href="room.html">Loại phòng</a>
+                            </li>
+                            <li>
+                                <a href="room.html">Loại phòng</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a href="">Thư viện</a>
                 </li>
                 <li>
-                    <a href="">Tin tức</a>
+                    <a href="news.html">Tin tức</a>
                 </li>
                 <li>
                     <a href="">Liên lạc</a>
@@ -79,13 +90,23 @@
                         <a href="room.html">Loại phòng</a>
                     </li>
                     <li>
-                        <a href="">Tiện ích</a>
+                        <div class="dropdown-nav">
+                            <a href="">Tiện ích</a>
+                            <ul>
+                                <li>
+                                    <a href="room.html">Loại phòng</a>
+                                </li>
+                                <li>
+                                    <a href="room.html">Loại phòng</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="">Thư viện</a>
                     </li>
                     <li>
-                        <a href="">Tin tức</a>
+                        <a href="news.html">Tin tức</a>
                     </li>
                     <li>
                         <a href="">Liên lạc</a>
@@ -113,37 +134,45 @@
                 <div class="name">Video</div>
             </div>
         </div>
-        <div class="content">
+        <div id="video-gallery" class="content">
             <div class="p-row">
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
             </div>
 
             <div class="p-row">
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
             </div>
 
             <div class="p-row">
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <div class="item">
-                    <iframe src="https://www.youtube.com/embed/szEq5sKJI_A"> </iframe>
+                <div class="item" data-src="https://www.youtube.com/embed/szEq5sKJI_A">
+                    <img src="https://img.youtube.com/vi/szEq5sKJI_A/0.jpg" alt="">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
             </div>
 
@@ -197,6 +226,7 @@
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/lightgallery-all.min.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 

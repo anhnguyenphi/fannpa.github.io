@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="assets/css/slick-theme.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <button onclick="openBookingForm()">Booking</button>
      <div id="booking" class="booking">
-         <div id="booking-slider">
+        <div id="booking-slider">
             <div class="item" style="background-image: url(assets/img/booking.jpg);">
                 <div class="content">Nhà hàng</div>
             </div>
@@ -29,22 +30,25 @@
             <div class="item" style="background-image: url(assets/img/booking.jpg);">
                 <div class="content">Nhà hàng</div>
             </div>
-         </div>
-         <div class="input-part">
-             <form class="scroll" action="">
+        </div>
+        <div class="input-part">
+            <form class="scroll" action="" id="formBooking">
                 <div class="group">
                     <div class="header">Đặt phòng</div>
                     <div class="list-field">
                         <div class="field">
-                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
+                            <label for="">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check in</label>
                             <input type="text" id="form-checkin">
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-calendar-o" aria-hidden="true"></i>Check out</label>
+                            <label for="">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>Check out</label>
                             <input type="text" id="form-checkout">
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-user-o" aria-hidden="true"></i>Số khách</label>
+                            <label for="">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>Số khách</label>
                             <div id="guest-count" class="count-input">
                                 <input type="text" id="guest-input">
                                 <div class="data-container">
@@ -54,7 +58,10 @@
                                     </div>
                                     <div class="dropdown-count" v-bind:class="{ active: active }">
                                         <div class="item" v-for="item in items">
-                                            <span class="name">{{ item.name }}</span>
+                                            <div class="name">
+                                                <div>{{ item.name }}</div>
+                                                <div class="des" v-if="item.des">{{item.des}}</div>
+                                            </div>
                                             <div class="modifier">
                                                 <span class="remove" v-on:click="remove(item.name)">-</span>
                                                 <span class="num">{{ item.num }}</span>
@@ -62,12 +69,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }"><span>
+                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }">
+                                        <span>
                                 </div>
                             </div>
                         </div>
                         <div class="field">
-                            <label for=""><i class="fa fa-home" aria-hidden="true"></i>Loại phòng / Số Phòng</label>
+                            <label for="">
+                                <i class="fa fa-home" aria-hidden="true"></i>Loại phòng / Số Phòng</label>
                             <div id="room-count" class="count-input">
                                 <input type="text" id="room-input">
                                 <div class="data-container">
@@ -85,7 +94,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }"><span>
+                                    <span class='pg-bg' v-on:click="dropdown" v-bind:class="{ active: active }">
+                                        <span>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +122,7 @@
                         <div class="field">
                             <label for="">
                                 <i class="fa fa-calendar-o" aria-hidden="true"></i>Hình thức thanh toán</label>
-                            <div class="g-select" id="guest-select">
+                            <div class="g-select" id="payment-select">
                                 <select name="" v-model="selected">
                                     <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
                                 </select>
@@ -130,25 +140,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="summary">
-                    <div class="money">
-                        <div class="title">Thành tiền</div>
-                        <div class="num">3.050.00<span>VND</span></div>
-                    </div>
-                    <div class="booking-submit">
-                        <input class="button" type="submit" value="Đặt phòng">
+                <div class="group" id="payment-info">
+                    <div class="header">THÔNG TIN CHUYỂN KHOẢN</div>
+                    <div class="list-field">
+                        <div class="field">
+                            <label for="">
+                                </i>Họ và tên</label>
+                            <p>Công ty TNHH Thương Mại và Dịch vụ Ngôi Nhà Đông Dương</p>
+                        </div>
+                        <div class="field">
+                            <label for="">Số tài khoản</label>
+                            <p>123 580 559</p>
+                        </div>
+                        <div class="field">
+                            <label for="">Chi nhánh ngân hàng</label>
+                            <p>Ngân hàng TMCP Việt Nam Thịnh Vượng, VPBank Chi nhánh Quận 10</p>
+                        </div>
                     </div>
                 </div>
-             </form>
-            <button id="booking-close" class="close">
+                <div class="summary">
+                    <div class="booking-submit" id="booking-submit">
+                        <input class="button" type="submit" value="Hoàn tất">
+                    </div>
+                </div>
+            </form>
+            <button class="close" id="bookingClose">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </button>
+        </div>
+         <div class="booking-popup">
+             <h2>Hoàn tất</h2>
+             <p>Đặt phòng hoàn tất, chúng tôi sẽ gửi email và gọi điện xác nhận đặt phòng. Xin cảm ơn quý khách đã tin tưởng sử dụng dịch
+            vụ tại Marilyn. Kính chúc quý khách và gia đình có một kì nghỉ thật tuyệt vời!</p>
+            <button class="button" id="bookingComplete">Đóng</button>
          </div>
      </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/lightgallery-all.min.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 

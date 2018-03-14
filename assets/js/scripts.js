@@ -1,15 +1,14 @@
 function openBookingForm() {
-    console.log("hahah");
     $("#booking").addClass('active');
     $("#booking-slider").slick('refresh');
 }
 $(function () {
     "use strict";
     /**
-     * 
-     * @param {*} id : element id selector
-     * @param {*} options : [ {name, max, min, num} ]
-     */
+ * 
+ * @param {*} id : element id selector
+ * @param {*} options : [ {name, max, min, num} ]
+ */
     var baseCountInputMixin = {
         methods: {
             dropdown: function (events) {
@@ -52,7 +51,11 @@ $(function () {
             },
             select: function (idx) {
                 this.selected = this.options[idx].value;
+                this.triggerFunc();
                 this.dropdown();
+            },
+            triggerFunc: function () {
+
             }
         },
         created: function () {
@@ -60,13 +63,16 @@ $(function () {
         }
     }
 
-    function createSelect(id, options) {
+    function createSelect(id, config) {
         var select = new Vue({
             el: id,
             data: {
-                options: options
+                options: config.options
             },
-            mixins: [baseSelectMixin]
+            mixins: [baseSelectMixin],
+            methods: {
+                triggerFunc: config.triggerFunc
+            }
         });
     }
 
@@ -92,16 +98,29 @@ $(function () {
     }
     createDatepicker("#checkin");
     createDatepicker("#checkout");
-    createSelect("#guest-select", [
-        { text: '1', value: '1'},
-        { text: '2', value: '2'},
-        { text: '3', value: '3'},
-    ]);
+    createSelect("#guest-select", {
+        options: [
+            { text: '1', value: '1' },
+            { text: '2', value: '2' },
+            { text: '3', value: '3' },
+        ],
+        triggerFunc: function () { }
+    });
+    createSelect("#payment-select", {
+        options: [
+            { text: 'Thanh toán tại Marily', value: 'Thanh toán tại Marilyn' },
+            { text: 'Chuyển khoản', value: 'Chuyển khoản' }
+        ],
+        triggerFunc: function () {
+            if (this.selected == 'Chuyển khoản') {
+                $("#payment-info").addClass("active");
+            } else {
+                $("#payment-info").removeClass("active");
+            }
+        }
+    });
 
     // Booking form
-    $("#booking-close").click(function () {
-        $("#booking").removeClass('active');
-    });
     createDatepicker("#form-checkin");
     createDatepicker("#form-checkout");
     createCountInput("#guest-count", [
@@ -111,10 +130,16 @@ $(function () {
             min: 0,
             num: 2
         }, {
-            name: "Trẻ em",
+            name: "Trẻ em dưới 6 tuổi",
             max: 5,
             min: 0,
             num: 1
+        }, {
+            name: "Trẻ em trên 6 tuổi",
+            des: '*Trẻ em trên 6 tuổi sẽ có phụ phí',
+            max: 5,
+            min: 0,
+            num: 0
         }
     ], function () {
         var tmp = [];
@@ -126,34 +151,34 @@ $(function () {
     createCountInput("#room-count", [
         {
             name: "Standard double",
-            max: 5,
+            max: 2,
             min: 0,
-            num: 2
+            num: 0
         }, {
             name: "Double superior",
-            max: 5,
+            max: 8,
             min: 0,
-            num: 1
+            num: 0
         }, {
             name: "Double deluxe",
-            max: 5,
+            max: 9,
             min: 0,
-            num: 1
+            num: 0
         }, {
             name: "Sea view studio",
-            max: 5,
+            max: 3,
             min: 0,
-            num: 1
+            num: 0
         }, {
             name: "Twin superior",
             max: 5,
             min: 0,
-            num: 1
+            num: 0
         }, {
             name: "Twin deluxe",
-            max: 5,
+            max: 3,
             min: 0,
-            num: 1
+            num: 0
         }
     ], function () {
         var total = 0;
@@ -161,6 +186,19 @@ $(function () {
             total += this.items[i].num;
         }
         this.text = total + ' Phòng';
+    });
+
+    // Booking
+    $("#bookingClose").click(function (params) {
+        $("#booking").removeClass('active');
+    })
+    $("#formBooking").submit(function (events) {
+        $("#booking").addClass("complete");
+        events.preventDefault();
+    });
+    $("#bookingComplete").click(function (params) {
+        $("#booking").removeClass('active');
+        $("#booking").removeClass('complete');
     });
     //
     $("#hamburger-menu").click(function (events) {
@@ -201,5 +239,13 @@ $(function () {
         slidesToScroll: 1,
         arrows: false,
         dots: true
+    });
+
+    $("#photo-gallery .item").each(function () {
+        $(this).lightGallery();
+    })
+
+    $("#video-gallery").lightGallery({
+        selector: '#video-gallery .item'
     });
 });

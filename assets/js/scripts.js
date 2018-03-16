@@ -241,8 +241,17 @@ $(function () {
         dots: true
     });
 
-    $("#photo-gallery .item").each(function () {
-        $(this).lightGallery();
+    $("#home-slider").slick({
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        arrows: false,
+        dots: false,
+    });
+
+    $("#photo-gallery .item").each(function (i, item) {
+        $(item).lightGallery();
     })
 
     $("#video-gallery").lightGallery({

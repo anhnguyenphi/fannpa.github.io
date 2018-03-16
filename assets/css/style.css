@@ -24,7 +24,8 @@
   font-style: normal; }
 
 .font-1 {
-  font-family: 'FS TrajanPro'; }
+  font-family: 'FS TrajanPro';
+  font-weight: lighter; }
 
 .font-2 {
   font-family: 'MYRIADPRO'; }
@@ -38,13 +39,13 @@
   note: All CSS3 Properties are being supported by Safari 5
   more info: http://www.findmebyip.com/litmus/#css3-properties
 ------------------------------------------------------------- */
-.button, .button-ref, .card, .g-select .list-option, nav.mobile .sidebar-menu, .room #rooms-nav .item.slick-current img, .room #rooms-nav .item:hover img, .g-photo .p-row .item img, .g-video .p-row .item, .g-video .p-row .item img {
-  transition: all 0.2s ease-in; }
-
-.g-photo .p-row .item img:hover {
+.facility .pool img:hover, .g-photo .p-row .item img:hover {
   box-shadow: 0 10px 6px -6px #777;
   -ms-transform: translateY(-10px);
       transform: translateY(-10px); }
+
+.button, .button-ref, .card, .g-select .list-option, nav.mobile .sidebar-menu, footer .contact .social a, footer .contact .social a i, .home .intro .thumb img, .home .intro .gallery .gallery-img img, .room #rooms-nav .item.slick-current img, .room #rooms-nav .item:hover img, .room .utility .row .thumb img, .facility .pool img, .g-photo .p-row .item img, .g-video .p-row .item, .g-video .p-row .item img, .contact .input-parts .info .social a, .contact .input-parts .info .social a i, .contact .input-parts .contact-form .form-item input[type=text], .contact .input-parts .contact-form .form-item input[type=submit] {
+  transition: all 0.2s ease-in; }
 
 a {
   text-decoration: none;
@@ -596,7 +597,7 @@ nav.pc {
   position: relative; }
   nav.pc .logo {
     float: left;
-    width: 100px; }
+    width: 170px; }
     nav.pc .logo img {
       width: 100%; }
   nav.pc .list-nav {
@@ -604,7 +605,7 @@ nav.pc {
     display: flex;
     font-size: 0.9em;
     display: inline-block;
-    margin-top: 18px; }
+    margin-top: 25px; }
     nav.pc .list-nav li {
       display: inline-block; }
     nav.pc .list-nav a {
@@ -644,10 +645,11 @@ nav.pc {
         text-align: left; }
   nav.pc .book {
     float: right;
-    padding: 15px 30px; }
+    padding: 15px 30px;
+    margin-top: 10px; }
   nav.pc .language {
     float: right;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-left: 20px; }
     nav.pc .language li {
       display: inline-block;
@@ -780,6 +782,10 @@ footer .contact {
     float: right; }
     footer .contact .social a {
       color: #a09992; }
+      footer .contact .social a:hover {
+        color: #000; }
+        footer .contact .social a:hover i {
+          background-color: #c5c5c5; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   footer .banner {
@@ -831,6 +837,12 @@ footer .contact {
   display: -ms-flexbox;
   display: flex; }
 
+.home #home-slider .item {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 85vh; }
+
 .home .banner {
   position: relative; }
   .home .banner .bg img {
@@ -865,6 +877,11 @@ footer .contact {
       border-left: solid 1px #eee; }
     .home .banner form .elememt:first-child {
       border-left: none; }
+    .home .banner form .elememt:last-child {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
     .home .banner form .date {
       width: 300px; }
     .home .banner form .date, .home .banner form .g-select .selected {
@@ -882,8 +899,7 @@ footer .contact {
       display: block;
       margin-bottom: 10px; }
     .home .banner form input[type=submit] {
-      padding: 15px 20px;
-      margin-top: 15px; }
+      padding: 15px 20px; }
 
 .home .intro .block-3 .element {
   padding-top: 100px; }
@@ -922,9 +938,17 @@ footer .contact {
   .home .intro .thumb img {
     width: 100%;
     box-shadow: 0 0 20px 5px #c5c5c5; }
+    .home .intro .thumb img:hover {
+      -ms-transform: translateY(-10px);
+          transform: translateY(-10px);
+      box-shadow: 0 0 20px 7px #c5c5c5; }
   .home .intro .thumb img.shifted {
     -ms-transform: translateY(100px);
         transform: translateY(100px); }
+    .home .intro .thumb img.shifted:hover {
+      -ms-transform: translateY(90px);
+          transform: translateY(90px);
+      box-shadow: 0 0 20px 7px #c5c5c5; }
 
 .home .intro .text {
   width: 60%;
@@ -935,7 +959,7 @@ footer .contact {
     font-family: 'FS TrajanPro'; }
   .home .intro .text p {
     font-family: 'MYRIADPRO';
-    color: #81736F;
+    color: #808080;
     font-size: 13px;
     line-height: 1.5rem; }
   .home .intro .text .title {
@@ -953,7 +977,7 @@ footer .contact {
       width: 50%;
       margin-bottom: 20px;
       position: relative;
-      color: #81736F; }
+      color: #808080; }
     .home .intro .text .options li:before {
       content: '';
       display: inline-block;
@@ -987,14 +1011,25 @@ footer .contact {
     bottom: 0;
     z-index: 2; }
     .home .intro .gallery .gallery-img img {
-      width: 100%; }
+      width: 100%;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right; }
+      .home .intro .gallery .gallery-img img:hover {
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); }
 
 .home .intro .space {
   position: relative; }
+  .home .intro .space .element {
+    padding-right: 0; }
+  .home .intro .space .thumb {
+    text-align: right; }
+    .home .intro .space .thumb img {
+      width: 90%; }
   .home .intro .space .link {
     position: absolute;
     bottom: 0;
-    right: 10px;
+    right: -30px;
     padding: 15px 30px;
     z-index: 2; }
 
@@ -1003,7 +1038,7 @@ footer .contact {
   margin-bottom: 70px;
   font-family: 'FS TrajanPro'; }
   .home .intro .news .title > div {
-    color: #81736F;
+    color: #808080;
     margin-bottom: 15px;
     font-family: 'MYRIADPRO'; }
 
@@ -1023,6 +1058,8 @@ footer .contact {
     padding: 15px 50px; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .home #home-slider .item {
+    height: 30vh; }
   .home .banner form {
     -ms-flex-direction: column;
         flex-direction: column;
@@ -1159,7 +1196,7 @@ footer .contact {
       left: 50px;
       font-family: 'FS TrajanPro'; }
     .room .showroom .info .type {
-      color: #81736F;
+      color: #808080;
       margin-bottom: 50px;
       font-family: 'MYRIADPRO'; }
     .room .showroom .info .content {
@@ -1175,6 +1212,12 @@ footer .contact {
   width: 50%;
   position: relative;
   z-index: 2; }
+
+.room #rooms .item {
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .room #rooms-nav {
   position: absolute;
@@ -1212,7 +1255,7 @@ footer .contact {
     content: '';
     display: block;
     width: 30%;
-    height: 400px;
+    height: 40%;
     background: #f9f9f9;
     position: absolute;
     bottom: 0;
@@ -1220,9 +1263,9 @@ footer .contact {
     z-index: -1; }
   .room .utility .title {
     position: absolute;
-    right: 20%;
-    top: 100px;
-    font-size: 3em;
+    right: 25%;
+    top: 120px;
+    font-size: 2.5em;
     font-family: 'FS TrajanPro'; }
   .room .utility .row {
     display: -ms-flexbox;
@@ -1230,37 +1273,54 @@ footer .contact {
     -ms-flex-align: end;
         align-items: flex-end;
     -ms-flex-pack: center;
-        justify-content: center; }
+        justify-content: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 0 10%; }
     .room .utility .row.first .thumb:first-child {
-      margin-right: 200px; }
+      padding-right: 150px; }
     .room .utility .row.second .thumb:first-child {
-      margin-right: 200px;
-      margin-left: 100px; }
+      padding-right: 150px;
+      padding-left: 70px; }
     .room .utility .row .up {
-      margin-bottom: 150px; }
+      padding-bottom: 150px; }
     .room .utility .row .thumb {
       position: relative;
-      width: 320px; }
+      width: 40%;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%; }
+      .room .utility .row .thumb .wrapper {
+        position: relative; }
       .room .utility .row .thumb img {
-        width: 100%; }
+        width: 100%;
+        -ms-transform-origin: bottom right;
+            transform-origin: bottom right; }
+        .room .utility .row .thumb img:hover {
+          -ms-transform: scale(1.05);
+              transform: scale(1.05); }
     .room .utility .row .content {
       position: absolute;
       bottom: 0;
       right: 0;
       background: #fff;
-      padding: 15px 30px;
-      width: 35%;
-      -ms-transform: translateX(50%);
-          transform: translateX(50%); }
+      padding: 1.5em;
+      width: 30%;
+      -ms-transform: translateX(60%);
+          transform: translateX(60%); }
     .room .utility .row .num {
-      font-size: 30px;
+      font-size: 2em;
       margin-bottom: 20px;
       font-family: 'FS TrajanPro'; }
     .room .utility .row .text {
-      font-size: 14px;
-      font-family: 'MYRIADPRO'; }
+      font-size: 1em;
+      font-family: 'MYRIADPRO';
+      color: #808080; }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .room .showroom::before {
+    height: 70%; }
+  .room #rooms .item {
+    height: 40vh; }
   .room #rooms-nav {
     -ms-transform: translateY(80%);
         transform: translateY(80%); }
@@ -1295,20 +1355,80 @@ footer .contact {
     margin-bottom: 40px; }
   .room .utility .row {
     -ms-flex-direction: column;
-        flex-direction: column; }
+        flex-direction: column;
+    padding: 0; }
+    .room .utility .row .up {
+      padding-bottom: 0px; }
     .room .utility .row .thumb {
       width: auto;
-      margin-bottom: 70px; }
+      padding-bottom: 70px; }
     .room .utility .row .content {
       -ms-transform: translate(20px, 20px);
           transform: translate(20px, 20px); }
     .room .utility .row.first .thumb:first-child {
-      margin-right: 0; }
+      padding-right: 0; }
     .room .utility .row.second .thumb:first-child {
-      margin-right: 0;
-      margin-left: 0; }
+      padding-right: 0;
+      padding-left: 0; }
     .room .utility .row.second .thumb:last-child {
-      margin-bottom: 0; } }
+      padding-bottom: 0; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .room .showroom::before {
+    height: 70%; }
+  .room #rooms .item {
+    height: 40vh; }
+  .room #rooms-nav {
+    -ms-transform: translateY(80%);
+        transform: translateY(80%); }
+    .room #rooms-nav .item {
+      padding: 40px 50px; }
+  .room .showroom {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    padding-top: 0; }
+    .room .showroom .slide {
+      width: 100%;
+      -ms-flex-order: 2;
+          order: 2; }
+    .room .showroom .info {
+      -ms-flex-order: 1;
+          order: 1;
+      width: 100%; }
+      .room .showroom .info .header, .room .showroom .info .content {
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 30px 5%; }
+      .room .showroom .info .header {
+        padding: 30px 5%;
+        text-align: center; }
+      .room .showroom .info .content {
+        padding: 0 5% 30px; }
+  .room .utility .title {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-bottom: 40px; }
+  .room .utility .row {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    padding: 0; }
+    .room .utility .row .up {
+      padding-bottom: 0px; }
+    .room .utility .row .thumb {
+      width: auto;
+      padding-bottom: 70px; }
+    .room .utility .row .content {
+      -ms-transform: translate(20px, 20px);
+          transform: translate(20px, 20px); }
+    .room .utility .row.first .thumb:first-child {
+      padding-right: 0; }
+    .room .utility .row.second .thumb:first-child {
+      padding-right: 0;
+      padding-left: 0; }
+    .room .utility .row.second .thumb:last-child {
+      padding-bottom: 0; } }
 
 .facility {
   position: relative; }
@@ -1614,3 +1734,127 @@ footer .contact {
       width: auto; }
       .g-video .g-header .name {
         font-size: 2em; } }
+
+.contact .banner {
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.contact .input-parts {
+  display: -ms-flexbox;
+  display: flex; }
+  .contact .input-parts .column {
+    width: 50%;
+    -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+  .contact .input-parts .info {
+    padding: 5rem 8rem;
+    margin-top: -7em;
+    background: #fff; }
+    .contact .input-parts .info .header {
+      font-family: 'FS TrajanPro';
+      font-size: 3rem;
+      margin-bottom: 4rem; }
+    .contact .input-parts .info .list {
+      font-family: 'MYRIADPRO';
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+      .contact .input-parts .info .list .title {
+        margin-bottom: 0.8rem; }
+      .contact .input-parts .info .list .content {
+        color: #808080; }
+      .contact .input-parts .info .list .item {
+        width: 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+        margin-bottom: 3rem; }
+    .contact .input-parts .info i {
+      background-color: #e6e6e6;
+      width: 40px;
+      height: 40px;
+      -ms-flex-pack: center;
+          justify-content: center;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -ms-flex-align: center;
+          align-items: center;
+      font-size: 18px;
+      margin-right: 10px; }
+    .contact .input-parts .info .social a {
+      color: #a09992; }
+      .contact .input-parts .info .social a:hover {
+        color: #000; }
+        .contact .input-parts .info .social a:hover i {
+          background-color: #c5c5c5; }
+  .contact .input-parts .contact-form {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(206, 187, 172, 0.9), rgba(206, 187, 172, 0.9)), url(images/contact.jpg);
+    height: 100%;
+    color: #fff;
+    padding: 6rem; }
+    .contact .input-parts .contact-form .title {
+      font-size: 3rem;
+      margin-bottom: 4rem; }
+    .contact .input-parts .contact-form .form-item {
+      margin-bottom: 1.5rem; }
+      .contact .input-parts .contact-form .form-item input {
+        font-family: 'MYRIADPRO';
+        color: #fff; }
+      .contact .input-parts .contact-form .form-item input[type=text] {
+        min-width: 25rem;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        border-bottom: solid 1px #e8d4c3; }
+        .contact .input-parts .contact-form .form-item input[type=text]::-webkit-input-placeholder {
+          color: #eee; }
+        .contact .input-parts .contact-form .form-item input[type=text]:-moz-placeholder {
+          color: #eee; }
+        .contact .input-parts .contact-form .form-item input[type=text]::-moz-placeholder {
+          color: #eee; }
+        .contact .input-parts .contact-form .form-item input[type=text]:-ms-input-placeholder {
+          color: #eee; }
+        .contact .input-parts .contact-form .form-item input[type=text]:hover {
+          border-bottom: solid 1px #fff; }
+      .contact .input-parts .contact-form .form-item input[type=submit] {
+        border: solid 1px #eee;
+        color: #eee;
+        background: transparent;
+        padding: 1rem 3rem;
+        margin-top: 4rem; }
+        .contact .input-parts .contact-form .form-item input[type=submit]:hover {
+          background-color: #fff;
+          color: #524947; }
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .contact .banner {
+    height: 30vh; }
+  .contact .input-parts {
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .contact .input-parts .info {
+      padding: 4rem 10%;
+      margin-top: 0; }
+      .contact .input-parts .info .list .item {
+        width: 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; }
+    .contact .input-parts .column {
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+      width: 100%; }
+    .contact .input-parts .contact-form {
+      padding: 4rem 10%; }
+      .contact .input-parts .contact-form .form-item input[type=text] {
+        min-width: 80%; } }
